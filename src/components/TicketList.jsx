@@ -12,9 +12,13 @@ export default function TicketList({ tickets }) {
       </div>
 
       <div className="ticket-list">
-        {tickets.map((ticket) => (
-          <TicketCard key={ticket.id} ticket={ticket} />
-        ))}
+        {tickets.length === 0 ? (
+          <p className="ticket-empty">Nessun ticket aperto al momento.</p>
+        ) : (
+          tickets.map((ticket) => (
+            <TicketCard key={ticket.id} ticket={ticket} />
+          ))
+        )}
       </div>
     </section>
   );
